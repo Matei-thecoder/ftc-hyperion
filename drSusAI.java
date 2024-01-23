@@ -84,6 +84,7 @@ public class drSusAI extends LinearOpMode {
     private DcMotor LeftDrive;
     private DcMotor armLeft;
     private DcMotor armRight;
+
     static final double HD_COUNTS_PER_REV = 28;
     static final double DRIVE_GEAR_REDUCTION = 20.15293;
     static final double WHEEL_CIRCUMFERENCE_MM = 90 * Math.PI;
@@ -117,16 +118,18 @@ public class drSusAI extends LinearOpMode {
                 telemetryTfod();
                 /*while(runtime.seconds()<2)
                 {*/
-                drive(0.5,10,10);
+                drive(0.5,5,5);
                 /* }*/
                 telemetryTfod();
                 if(objectFound)
                 {
                     //runtime.reset();
                     /* while(runtime.seconds()>2 && runtime.seconds()<5) {*/
-                    drive(0.5, 10, 10);
+                    drive(0.5, 20, 20);
+                    drive(0.5,10,10);
                     //40
-                    park(10);
+                    park(40);
+                    // objectFound = false;
                     // }
                 }
                 else
@@ -312,7 +315,9 @@ public class drSusAI extends LinearOpMode {
         }
     }
     private void park(int distance){
-        drive(0.5,-11.5,11.5);
+        drive(0.5,-20,20);
+        drive(0.5,30,30);
+        drive(0.5,11.5,-11.5);
         drive(0.5,distance,distance);
     }
 
